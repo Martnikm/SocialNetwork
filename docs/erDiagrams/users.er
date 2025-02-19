@@ -1,8 +1,0 @@
-erDiagram
-    USERS {
-        int id PK
-        string username
-        string email
-        string password_hash
-        datetime created_at
-    }
