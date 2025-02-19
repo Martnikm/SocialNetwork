@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api_gateway:
+    build: ./services/api_gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - users_service
+      - posts_service
+      - stats_service
+
+  users_service:
+    build: ./services/users_service
+    ports:
+      - "5001:5001"
+
+  posts_service:
+    build: ./services/posts_service
+    ports:
+      - "5002:5002"
+
+  stats_service:
+    build: ./services/stats_service
+    ports:
+      - "5003:5003"
