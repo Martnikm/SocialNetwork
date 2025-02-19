@@ -1,0 +1,7 @@
+erDiagram
+    POSTS {
+        int id PK
+        int user_id FK
+        string content
+        datetime created_at
+    }
