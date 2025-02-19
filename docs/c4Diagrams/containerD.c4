@@ -1,0 +1,10 @@
+@startuml
+
+title Социальная сеть - Диаграмма контейнеров
+
+Container(API_Gateway, "API Gateway", "Flask FastAPI")
+Container(UsersService, "Users Service", "Управляет пользователями", "PostgreSQL")
+Container(PostsService, "Posts Service", "Обрабатывает посты и комментарии", "PostgreSQL")
+Container(StatsService, "Statistics Service", "Считает лайки и просмотры", "ClickHouse")
+
+@enduml
