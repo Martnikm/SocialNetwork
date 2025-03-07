@@ -1,26 +1,26 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  api_gateway:
-    build: ./services/api_gateway
+  api_service:
+    build: ./api_service
     ports:
       - "5000:5000"
     depends_on:
-      - users_service
-      - posts_service
-      - stats_service
+      - user_service
 
-  users_service:
-    build: ./services/users_service
+  user_service:
+    build: ./user_service
     ports:
       - "5001:5001"
+    depends_on:
+      - db
 
-  posts_service:
-    build: ./services/posts_service
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: users
     ports:
-      - "5002:5002"
-
-  stats_service:
-    build: ./services/stats_service
-    ports:
-      - "5003:5003"
+      - "5432:5432"
